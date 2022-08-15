@@ -28,15 +28,6 @@ Route::get('/publish', function () {
 
     $channel->close();
     $connection->close();
-
-    // $data = [
-    //     'email' => 'approve_legal_representative',
-    //     'user_uuid' => 'g43g43negn34g3'
-    // ];
-
-    // $message = json_encode($data);
-
-    // Amqp::publish('jsonEmails', $message);
 });
 
 Route::get('/consumer', function () {
@@ -57,9 +48,4 @@ Route::get('/consumer', function () {
 
     $channel->close();
     $connection->close();
-
-    // Amqp::consume('jsonEmails', function ($message, $resolver) {
-    //     $resolver->acknowledge($message);
-    //     $resolver->stopWhenProcessed();
-    // });
 });
