@@ -1,8 +1,6 @@
 <?php
 
-use Amqp;
 use App\Models\User;
-use Convenia\Pigeon\Facade\Pigeon;
 use PhpAmqpLib\Message\AMQPMessage;
 use Illuminate\Support\Facades\Route;
 use App\Mail\ApproveLegalRepresentative;
@@ -46,7 +44,7 @@ Route::get('/consumer', function () {
 
     $channel = $connection->channel();
 
-    $callback = function($message) {
+    $callback = function ($message) {
         Mail::to(User::find(1))
             ->send(new ApproveLegalRepresentative());
     };
